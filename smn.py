@@ -68,16 +68,27 @@ print(wint, number)
 # 8
 tree = ""
 levels = int(input("\n1.8. Введите желаемую высоту для ёлки: "))
+wig, hei = levels + 5, levels
+Pineview = [[0 for x in range(wig)] for y in range(hei)]
+# for x in range(0, wig):
+#     for y in range(0, hei):
+#         Pineview[y][x] = "0"
 for i in range(0, levels + 1):
     if i == 0:
         tree += "*"
+        Pineview[levels - 1][i] = tree
     else:
         tree += "**"
-    print(tree.center(os.get_terminal_size().columns))
+        Pineview[levels - 1][i] = tree
+for y in Pineview:
+    for x in y:
+        print(x, end=" ")
+    print()
+    # print(tree.center(os.get_terminal_size().columns))
 
 # 9
 limit = input("\n1.9. Нажмите любую кнопку чтобы вывести таблицу умножения.\n")
 for x in range(2, 10):
     print("\n")
     for y in range (2, 11):
-        print(x, "*", y, "=", x*y, "\t")
+        print(x, "*", y, "=", x*y)
